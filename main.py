@@ -41,3 +41,15 @@ if guess == validation_labels["Bee Movie"]:
 else:
   print("Wrong!")
 
+
+def find_validation_accuracy(training_set, training_labels, validation_set,validation_labels,k):
+  num_correct = 0.0
+  for title in validation_set:
+    guess = classify(validation_set[title],training_set,training_labels,k)
+
+    if guess == validation_labels[title]:
+      num_correct += 1
+  return num_correct/len(validation_set)
+
+
+print(find_validation_accuracy(training_set, training_labels, validation_set, validation_labels, 3))
